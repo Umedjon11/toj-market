@@ -25,7 +25,7 @@ const StoresList = () => {
           <h2 className="text-3xl  sm:text-4xl font-semibold">{tt("text8")}</h2>
         </aside>
         {shops &&
-          shops.map((store: IShop) => {
+          shops.map((store: any) => {
             return <Link href={`/stores/${store.id}`} className="flex w-[49%] sm:w-[12%] h-[30vh] flex-col gap-[1.5vh] items-center text-center transition-all duration-300 cursor-pointer hover:text-[#FFC845]" key={store.id}>
               <div className="bg-[#F7F8F9] flex p-[1vh] items-center justify-center rounded-xl w-full h-[20vh]">
                 <img
