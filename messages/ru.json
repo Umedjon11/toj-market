@@ -1,0 +1,10 @@
+{
+    "login": {
+        "text1": "Log In",
+        "test2": "Email",
+        "text3": "password",
+        "text4": "Don't have an account?",
+        "text5": "Register",
+        "text6": "LogIn"
+    }
+}
