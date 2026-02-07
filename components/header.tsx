@@ -41,6 +41,13 @@ const Header = () => {
         width={150}
         height={100}
       />
+      <select onChange={(e) => {
+        window.location.pathname = `/${e.target.value}/${path.slice(4)}`
+      }} value={path.slice(1, 3)} className="p-[1vh_10px] rounded-md border backdrop-blur-lg dark:bg-black">
+        <option className="en">en</option>
+        <option className="ru">ru</option>
+        <option className="tj">tj</option>
+      </select>
       <div className="hidden sm:flex gap-10 items-center">
         <Link href="/" className={`hover:text-[#F5C70E] pl-2 pr-2 border-b-[#F5C70E] pb-1 transition-all duration-300 hover:border-b-2 ${path == "/en" || path == "/ru" || path == "/tj" ? "text-[#F5C70E] border-b-2 border-b-[#F5C70E]" : ""}`}>{t("text6")}</Link>
         <Link href="/products" className={`hover:text-[#F5C70E] pl-2 pr-2 border-b-[#F5C70E] pb-1 transition-all duration-300 hover:border-b-2 ${path.includes("/products") ? "text-[#F5C70E] border-b-2 border-b-[#F5C70E]" : ""}`}>{t("text7")}</Link>

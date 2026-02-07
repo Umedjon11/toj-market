@@ -193,12 +193,11 @@ const ProductInfo = () => {
                         </div>
                     </div>
                     <div className="flex justify-between w-full">
-                        <button onClick={() => dispatch(addToCart(productById ? productById?.id : 1))} className="bg-white text-black cursor-pointer p-[2vh] sm:p-[1.2vh] rounded-md"><ShoppingCart /></button>
-                        <button className="bg-white text-[red] cursor-pointer p-[2vh] sm:p-[1.2vh] rounded-md"><Heart /></button>
+                        <button onClick={() => dispatch(addToCart(productById ? productById?.id : 1))} className="bg-white text-black cursor-pointer p-[2vh] sm:p-[1.7vh] rounded-md"><ShoppingCart /></button>
                         <button onClick={() => {
                             dispatch(addToCart(productById ? productById?.id : 1))
                             window.location.pathname = "/design"
-                        }} className="bg-[#FFC845] transition-all duration-500 hover:bg-[#ffc745db] text-white font-semibold cursor-pointer p-[2vh_0] sm:p-[1.2vh_0] rounded-md w-[60%] sm:w-[70%]">{t("text4")}</button>
+                        }} className="bg-[#FFC845] transition-all duration-500 hover:bg-[#ffc745db] text-white font-semibold cursor-pointer p-[2vh_0] sm:p-[1.7vh_0] rounded-md w-[80%]">{t("text4")}</button>
                     </div>
                 </aside>
             </section>

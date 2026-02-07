@@ -41,7 +41,7 @@
         "text2": "More Info",
         "text3": "Products",
         "text4": "See More",
-        "text5": "Your Popular shops",
+        "text5": "Our Popular shops",
         "text6": "Categories",
         "text7": "All categories",
         "text8": "Stores",
@@ -187,11 +187,34 @@
         "text13": "Cancel",
         "text14": "Save"
     },
+    "design": {
+        "text1": "Products with delivery",
+        "text2": "Adress",
+        "text3": "Delivery adress",
+        "text4": "comment to delivery",
+        "text5": "Design",
+        "text6": "Track the status of your order in your personal account",
+        "text7": "Product design",
+        "text8": "Order total"
+    },
+    "wish": {
+        "text1": "Wished products",
+        "text2": "remove All",
+        "text3": "No wish yet",
+        "text4": "Go to shop"
+    },
     "footer": {
-        "text1": "",
-        "text2": "",
-        "text3": "",
-        "text4": "",
-        "text5": ""
+        "text1": "For Buyers",
+        "text2": "Products",
+        "text3": "Stores",
+        "text4": "Categories",
+        "text5": "About Us",
+        "text6": "Home",
+        "text7": "Profile",
+        "text8": "For sellers",
+        "text9": "My shop",
+        "text10": "Social networks",
+        "text11": "Download",
+        "text12": "Made by"
     }
 }

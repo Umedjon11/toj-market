@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Skeleton } from "../ui/skeleton"
 import { useTranslations } from "next-intl";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,16 +9,20 @@ import { getProducts } from "@/reducers/products/api";
 import { IProduct } from "@/reducers/products/products";
 import { addToCart } from "@/reducers/cart/api";
 import Link from "next/link";
-import { Crown, ShoppingBag, ShoppingCart } from "lucide-react";
+import { Crown, Heart, ShoppingBag, ShoppingCart } from "lucide-react";
+import { addWish, getMyWish, isWished } from "@/api/wish/wishList";
 
 const ProductsList = () => {
   const { isLoading, products } = useSelector((state: RootState) => state.products)
   const { categoryId, price, query } = useSelector((state: RootState) => state.filter)
   const t = useTranslations("product")
   const tt = useTranslations("home")
+  const [wish, setWish] = useState([])
   const dispatch = useDispatch() as any
   useEffect(() => {
     dispatch(getProducts())
+    const myWish = getMyWish()
+    setWish(myWish)
   }, [])
 
   return (
@@ -31,6 +35,11 @@ const ProductsList = () => {
         products.filter((product: IProduct) => +product.price >= price[0] && +product.price <= price[1] && product.title.toUpperCase().includes(query.toUpperCase()) && product.category == categoryId || +product.price >= price[0] && +product.price <= price[1] && product.title.toUpperCase().includes(query.toUpperCase()) && !categoryId).map((product: IProduct) => {
           return <div key={product.id} className="w-full sm:w-[23.5%] flex flex-col gap-[1vh] rounded-xl p-[1vh]">
             {product.discount > 0 && (<p className="rounded-md p-[0.5vh_10px] absolute bg-[#FF4444] ml-[2vh] mt-[34.5vh] w-fit text-white">-{product.discount}%</p>)}
+            <button onClick={() => {
+              addWish(product)
+              const newWish = getMyWish()
+              setWish(newWish)
+            }} className={`rounded-full p-[0.5vh] absolute ${isWished(wish, product.id) ? "bg-[#FF4444] text-white" : "bg-white text-[#FF4444]"} ml-[3vh] mt-[2.5vh] w-fit cursor-pointer`}><Heart /></button>
             <div className="p-[1vh] rounded-xl flex items-center justify-center bg-white dark:bg-[#1E2024] w-full h-[40vh]">
               <img
                 src={product.main_image ? `${product.main_image}` : "https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg"}

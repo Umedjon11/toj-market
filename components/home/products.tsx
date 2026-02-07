@@ -4,20 +4,24 @@ import { addToCart } from "@/reducers/cart/api";
 import { getProducts } from "@/reducers/products/api";
 import { IProduct } from "@/reducers/products/products";
 import { RootState } from "@/store/store";
-import { ChevronRight, Crown, Eye, ShoppingBag, ShoppingCart, TicketPercentIcon } from "lucide-react";
+import { ChevronRight, Crown, Eye, Heart, ShoppingBag, ShoppingCart, TicketPercentIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Skeleton } from "../ui/skeleton";
 import Link from "next/link";
+import { addWish, getMyWish, isWished } from "@/api/wish/wishList";
 
 const Products = () => {
     const { isLoading, products } = useSelector((state: RootState) => state.products)
     const t = useTranslations("product")
     const tt = useTranslations("home")
+    const [wish, setWish] = useState([])
     const dispatch = useDispatch() as any
     useEffect(() => {
         dispatch(getProducts())
+        const myWish = getMyWish()
+        setWish(myWish)
     }, [])
     return (
         <section className="flex bg-white p-[5vh_2%] rounded-2xl dark:bg-[#1E2024] w-full gap-[3vh_2%] flex-wrap">
@@ -29,6 +33,11 @@ const Products = () => {
                 products.slice(0, 20).map((product: IProduct) => {
                     return <div key={product.id} className="w-full sm:w-[23.5%] flex flex-col gap-[1vh] rounded-xl p-[1vh]">
                         {product.discount > 0 && (<p className="rounded-md p-[0.5vh_10px] absolute bg-[#FF4444] ml-[2vh] mt-[34.5vh] w-fit text-white">-{product.discount}%</p>)}
+                        <button onClick={() => {
+                            addWish(product)
+                            const newWish = getMyWish()
+                            setWish(newWish)
+                        }} className={`rounded-full p-[0.5vh] absolute ${isWished(wish, product.id) ? "bg-[#FF4444] text-white" : "bg-white text-[#FF4444]"} ml-[3vh] mt-[2.5vh] w-fit cursor-pointer`}><Heart /></button>
                         <div className="p-[1vh] rounded-xl flex items-center justify-center bg-[#F7F8F9] w-full h-[40vh]">
                             <img
                                 src={product.main_image ? `${product.main_image}` : "https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg"}
