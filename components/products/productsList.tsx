@@ -39,7 +39,7 @@ const ProductsList = () => {
               addWish(product)
               const newWish = getMyWish()
               setWish(newWish)
-            }} className={`rounded-full p-[0.5vh] absolute ${isWished(wish, product.id) ? "bg-[#FF4444] text-white" : "bg-white text-[#FF4444]"} ml-[3vh] mt-[2.5vh] w-fit cursor-pointer`}><Heart /></button>
+            }} className={`rounded-full p-[0.5vh] absolute ml-[3vh] mt-[2.5vh] w-fit cursor-pointer`}><Heart className={`${isWished(wish, product.id) ? "fill-[#FF4444] stroke-[#FF4444]" : "stroke-[black]"}`} /></button>
             <div className="p-[1vh] rounded-xl flex items-center justify-center bg-white dark:bg-[#1E2024] w-full h-[40vh]">
               <img
                 src={product.main_image ? `${product.main_image}` : "https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg"}
@@ -54,7 +54,7 @@ const ProductsList = () => {
               <p className={`${product.discount > 0 ? "line-through" : "font-semibold"}`}>{product.price} c</p>
             </div>
             <Link href={`products/${product.id}`} className="text-xl transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
-            <p className={`${+product.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"} font-semibold flex`}>{+product.avg_crowns > 0 ? (<span className="flex gap-2 items-center"><Crown /> {product.avg_crowns}</span>) : (<span className="flex gap-2 items-center"><Crown />{t("text3")}</span>)}</p>
+            <p className={`${+product.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"} font-semibold flex`}>{+product.avg_crowns > 0 ? (<span className="flex gap-2 items-center"><Crown className="fill-[#FFC845] stroke-[#FFC845]" /> {product.avg_crowns}</span>) : (<span className="flex gap-2 items-center"><Crown />{t("text3")}</span>)}</p>
             <button onClick={() => dispatch(addToCart(product.id))} className="flex gap-3 items-center justify-center font-semibold text-white w-[98%] hover:bg-[#ffc745db] m-[0_auto] p-[1vh_0] mb-[1vh] mt-[1vh] border-[#FFC845] bg-[#FFC845] transition-all duration-500 cursor-pointer rounded-xl border"><ShoppingCart /> {t("text1")}</button>
           </div>
         })

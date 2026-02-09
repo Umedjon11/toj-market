@@ -6,7 +6,7 @@ import { setCategryId } from "@/reducers/filter/filter";
 import { addCommentToProudct, addRaitingToProudct, getCommentsById, getProductById } from "@/reducers/products/api";
 import { IComment, IImage } from "@/reducers/products/products";
 import { RootState } from "@/store/store";
-import { CloudAlert, Heart, MessageCircle, ShoppingCart } from "lucide-react";
+import { CloudAlert, Crown, Heart, MessageCircle, ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -233,11 +233,11 @@ const ProductInfo = () => {
                         <p className="font-semibold text-xl">{t("text11")}</p>
                         <div className="flex flex-wrap gap-y-[1vh] justify-between">
                             <select defaultValue={1} {...register("raiting")} form="addCom" className="p-[1.5vh_30px] text-[#FFC845] rounded-md border dark:bg-black w-full sm:w-fit">
-                                <option value={1}>1 Crown</option>
-                                <option value={2}>2 Crown</option>
-                                <option value={3}>3 Crown</option>
-                                <option value={4}>4 Crown</option>
-                                <option value={5}>5 Crown</option>
+                                <option value={1}>1 👑</option>
+                                <option value={2}>2 👑</option>
+                                <option value={3}>3 👑</option>
+                                <option value={4}>4 👑</option>
+                                <option value={5}>5 👑</option>
                             </select>
                             <input {...register("comment")} form="addCom" className="w-full sm:w-[75%] p-[1.5vh_20px] rounded-md border" placeholder={t("text12")} />
                             <button form="addCom" className="bg-[#FFC845] transition-all duration-500 hover:bg-[#ffc745db] text-white font-semibold cursor-pointer p-[1.5vh_0] sm:p-[1.2vh_0] rounded-md w-full sm:w-[12%]">{t("text13")}</button>

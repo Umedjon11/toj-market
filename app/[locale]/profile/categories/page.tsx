@@ -82,7 +82,7 @@ const Categories = () => {
         return <section className="flex flex-col  text-[#00000044] dark:text-[#ffffff49] gap-[2vh] w-full items-center justify-center m-[10vh_0]">
             <Ban size={170} />
             <p>{t("text10")}</p>
-            <Link href="/profiel" className="transition-all duration-500 bg-[#FFC845] hover:bg-[#ffc745be] w-fit text-white p-[1vh_25px] cursor-pointer rounded-md">{t('text11')}</Link>
+            <Link href="/profile" className="transition-all duration-500 bg-[#FFC845] hover:bg-[#ffc745be] w-fit text-white p-[1vh_25px] cursor-pointer rounded-md">{t('text11')}</Link>
         </section>
     }
 

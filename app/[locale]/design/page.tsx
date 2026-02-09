@@ -26,8 +26,8 @@ const Design = () => {
         <p className="font-semibold text-3xl mt-[2vh]">{tt("text7")}</p>
         <aside className="flex bg-white dark:bg-[#1E2024] p-[2vh_2%] rounded-xl flex-col gap-[3vh] w-full">
           <p className="font-semibold">{tt("text2")}</p>
-          <input className="w-full p-[1.5vh_20px] rounded-xl border" placeholder={tt("text3")} />
-          <input className="w-full p-[1.5vh_20px_10vh_20px] rounded-xl border" placeholder={tt("text4")} />
+          <input required suppressHydrationWarning={true} className="w-full p-[1.5vh_20px] rounded-xl border" placeholder={tt("text3")} />
+          <input required suppressHydrationWarning={true} className="w-full p-[1.5vh_20px_10vh_20px] rounded-xl border" placeholder={tt("text4")} />
         </aside>
         <aside className="flex bg-white dark:bg-[#1E2024] p-[3vh_4%] sm:p-[3vh_2%] rounded-xl flex-col gap-[3vh] w-full">
           <h2 className="text-2xl font-semibold flex items-center justify-between mb-[2vh] rounded-xl w-full">{tt("text1")} <span className="text-[14px]">{cartProducts ? cartProducts.length : 0}</span></h2>

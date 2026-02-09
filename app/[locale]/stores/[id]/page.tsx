@@ -4,7 +4,7 @@ import { addToCart } from "@/reducers/cart/api"
 import { getShopById } from "@/reducers/shops/api"
 import { IProduct } from "@/reducers/shops/shops"
 import { RootState } from "@/store/store"
-import { ShoppingCart } from "lucide-react"
+import { CloudAlert, ShoppingCart, StoreIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { useParams } from "next/navigation"
@@ -17,6 +17,7 @@ const Store = () => {
     const { shopById, isLoadingShopById } = useSelector((state: RootState) => state.shops)
     const t = useTranslations("myShop")
     const tt = useTranslations("product")
+    const ttt = useTranslations("info")
     const dispatch = useDispatch() as any
     const api = process.env.NEXT_PUBLIC_DATA_API
 
@@ -77,6 +78,13 @@ const Store = () => {
             </div>
         </main>
     }
+    if (!isLoadingShopById && !shopById) {
+        return <div className="flex font-semibold text-[#00000027] dark:text-[#ffffff1f] flex-col items-center justify-center gap-[1vh] w-full min-h-[95vh]">
+            <CloudAlert size={200} />
+            <p>{t("text12")}</p>
+            <button onClick={() => dispatch(getShopById(id))} className="text-white font-medium cursor-pointer transition-all duration-500 p-[1vh_20px] rounded-md bg-[#FFC845] hover:bg-[#ffc745df]">{ttt("text10")}</button>
+        </div>
+    }
 
     return (
     <main className="flex flex-col gap-[5vh] min-h-[85vh] items-start w-[80%] m-[0_auto] pb-[15vh] bg-[#F7F8F9] dark:bg-black">
@@ -116,6 +124,12 @@ const Store = () => {
                             </div>
                         })
                     }
+                    {shopById && shopById?.most_popular_products?.length == 0 && (
+                        <div className="flex flex-col font-semibold text-[#00000035] dark:text-[#ffffff29] items-center justify-center gap-[1vh] w-full m-[7vh_0]">
+                            <StoreIcon size={150} />
+                            <p>{t("text32")}</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </main>

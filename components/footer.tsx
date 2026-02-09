@@ -43,6 +43,7 @@ const Footer = () => {
           alt="Qr"
           width={150}
           height={150}
+          draggable={false}
         />
         <p className="text-[#F5C70E]">{t("text11")} Toj Market </p>
       </section>

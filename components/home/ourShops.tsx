@@ -18,36 +18,57 @@ const OurShops = () => {
         dispatch(getShops())
     }, [])
 
-    return (
-        <ScrollVelocityContainer className="bg-white p-[5vh_2%] rounded-2xl dark:bg-[#1E2024] w-full">
-            <h2 className="text-3xl  sm:text-4xl w-full mb-[4vh] font-semibold">{tt("text5")}</h2>
-            <ScrollVelocityRow baseVelocity={100}>
-                {shops &&
-                    shops.map((shop: IShop) => {
-                        return <div key={shop.id} className="flex key={shop.id} pr-[10vh] gap-4 items-center">
-                            <img
-                                src={shop.avatar}
-                                alt={`${shop.avatar}`}
-                                width={60}
-                                height={60}
-                                draggable={false}
-                                className="rounded-full"
-                            />
-                            {+shop.avg_crowns == 0 ?
-                                (<p className="flex gap-1 font-semibold text-xl items-center text-[#D1D3D4]">{t("text3")}</p>) :
-                                (<p className="flex gap-1 font-semibold text-xl items-center text-[#FFC845]"><Crown /> {shop.avg_crowns}</p>)
-                            }
-                        </div>
-                    })
-                }
-                {isLoading ? (
-                    <div className="flex pr-[10vh] key={shop.id} gap-4 items-center">
-                        <Skeleton className="w-15 h-15 rounded-full" />
-                        <Skeleton className="w-30 h-5 rounded-md" />
+    return (<ScrollVelocityContainer className="bg-white py-12 px-4 sm:px-[5%] rounded-3xl dark:bg-[#111214] w-full border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white dark:from-[#111214] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white dark:from-[#111214] to-transparent z-10 pointer-events-none" />
+        <div className="flex flex-col mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
+                {tt("text5")}
+            </h2>
+            <div className="h-1 w-12 bg-[#FFC845] mt-2 rounded-full" />
+        </div>
+
+        <ScrollVelocityRow baseVelocity={30} className="flex items-center">
+            {shops && shops.map((shop: IShop) => (
+                <div
+                    key={shop.id}
+                    className="group flex items-center gap-4 bg-gray-50 dark:bg-white/5 border border-transparent hover:border-[#FFC845] hover:bg-white dark:hover:bg-white/10 px-6 py-3 rounded-2xl mx-4 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
+                >
+                    <div className="relative">
+                        <img
+                            src={shop.avatar}
+                            alt={shop.title}
+                            width={54}
+                            height={54}
+                            draggable={false}
+                            className="rounded-full object-cover border-2 border-white dark:border-gray-800 shadow-sm transition-transform duration-300 group-hover:scale-110"
+                        />
                     </div>
-                ) : null}
-            </ScrollVelocityRow>
-        </ScrollVelocityContainer >
+                    <div className="flex flex-col">
+                        {+shop.avg_crowns === 0 ? (
+                            <p className="flex gap-1.5 font-bold text-lg items-center text-gray-300 dark:text-gray-600 transition-colors group-hover:text-gray-400">
+                                {t("text3")}
+                            </p>
+                        ) : (
+                            <p className="flex gap-1.5 font-bold text-lg items-center text-[#FFC845]">
+                                <Crown className="w-5 h-5 fill-[#FFC845]" />
+                                {shop.avg_crowns}
+                            </p>
+                        )}
+                    </div>
+                </div>
+            ))}
+            {isLoading && (
+                <div className="flex gap-8 mx-4 items-center bg-gray-50 dark:bg-white/5 px-6 py-3 rounded-2xl animate-pulse">
+                    <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800" />
+                    <div className="flex flex-col gap-2">
+                        <div className="w-16 h-2 bg-gray-200 dark:bg-gray-800 rounded" />
+                        <div className="w-24 h-4 bg-gray-200 dark:bg-gray-800 rounded" />
+                    </div>
+                </div>
+            )}
+        </ScrollVelocityRow>
+    </ScrollVelocityContainer>
     )
 }
 

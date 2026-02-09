@@ -7,7 +7,7 @@ import { ICategory } from "@/reducers/categories/categories"
 import { addNewImage, addNewProduct, deleteProduct, deleteShop, editAvatar, editProduct, getMyShop, makeDiscountProduct } from "@/reducers/shop/api"
 import { IMyProduct } from "@/reducers/shop/shop"
 import { RootState } from "@/store/store"
-import { Camera, ImagePlus, Pen, Percent, Store, Trash } from "lucide-react"
+import { Camera, ImagePlus, Pen, Percent, Store, StoreIcon, Trash } from "lucide-react"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
@@ -300,7 +300,7 @@ const MyShop = () => {
 
       <Dialog open={openAdd} onOpenChange={() => {
         setOpenAdd(false)
-        reset({ discount: "", title: "", description: "", price: "", quantity: "", category: "" })
+        reset({ discount: "", title: "", description: "", price: "", quantity: "", category: "1" })
       }}>
         <DialogContent>
           <DialogHeader>
@@ -325,7 +325,7 @@ const MyShop = () => {
               <div className="flex justify-between flex-wrap gap-y-[1vh]">
                 <button type="button" onClick={() => {
                   setOpenAdd(false)
-                  reset({ discount: "", title: "", description: "", price: "", quantity: "", category: "" })
+                  reset({ discount: "", title: "", description: "", price: "", quantity: "", category: "1" })
                 }} className="cursor-pointer p-[1vh_20px] rounded-md transition-all duration-500 w-full sm:w-[48%] border font-semibold text-[#a1a1a1] dark:text-white dark:border-white">{t("text8")}</button>
                 <button form="add" className={`cursor-pointer p-[1vh_20px] rounded-md transition-all duration-500 w-full sm:w-[48%] text-white font-semibold bg-[#FFC845] hover:bg-[#ffc745ba]`}>{t("text15")}</button>
               </div>
@@ -471,6 +471,14 @@ const MyShop = () => {
               </div>
             })
           }
+
+          {shop && shop?.most_popular_products?.length == 0 && (
+            <div className="flex flex-col font-semibold text-[#00000035] dark:text-[#ffffff29] items-center justify-center gap-[1vh] w-full m-[7vh_0]">
+              <StoreIcon size={150} />
+              <p>{t("text32")}</p>
+              <button onClick={() => setOpenAdd(true)} className="transition-all duration-500 bg-[#FFC845] hover:bg-[#ffc745be] w-fit text-white p-[0.5vh_15px] cursor-pointer rounded-md">{t("text4")}</button>
+            </div>
+          )}
         </div>
       </div>
     </section>

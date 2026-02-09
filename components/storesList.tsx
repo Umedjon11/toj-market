@@ -36,7 +36,7 @@ const StoresList = () => {
                   className="w-fit h-fit max-w-[99%] max-h-[18vh] rounded-xl"
                 />
               </div>
-              <p className={`flex gap-4 items-center font-semibold ${+store.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"}`}><Crown /> {+store.avg_crowns > 0 ? store.avg_crowns : tt("text9")}</p>
+              <p className={`flex gap-4 items-center font-semibold ${+store.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"}`}><Crown className="fill-[#FFC845] stroke-[#FFC845]" /> {+store.avg_crowns > 0 ? store.avg_crowns : tt("text9")}</p>
               <p>{store.title}</p>
             </Link>
           })
