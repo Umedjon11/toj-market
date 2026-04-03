@@ -21,6 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Toj Market",
   description: "Online market were you can buy and sell products",
+  metadataBase: new URL('https://toj-market.core.tj'),
   openGraph: {
     title: "Toj Market",
     description: "Online market were you can buy and sell products",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Toj Market",
     images: [
       {
-        url: "https://toj-market.core.tj/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
       },
