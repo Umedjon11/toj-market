@@ -68,10 +68,11 @@ const Header = () => {
         </div>
 
         <Image
+          onClick={() => window.location.pathname = "/"}
           draggable={false}
           src="/logo.png"
           alt="logo"
-          className="w-20 h-7 sm:w-23 sm:h-8"
+          className="w-20 h-7 sm:w-23 sm:h-8 cursor-pointer"
           width={150}
           height={100}
         />
