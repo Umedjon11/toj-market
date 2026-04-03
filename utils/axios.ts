@@ -140,7 +140,7 @@ axiosRequest.interceptors.response.use(
 
                         return axiosRequest(request)
                     }
-                    else if (window.location.pathname != "/login" && window.location.pathname != "/register") {
+                    else if (!window.location.pathname.includes("/login") && !window.location.pathname.includes("/register")) {
                         removeTokens()
                         window.location.pathname = "/login"
                     }

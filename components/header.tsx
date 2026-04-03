@@ -33,10 +33,10 @@ const Header = () => {
   const token = getAccessToken()
 
   useEffect(() => {
-    dispatch(getCartProducts())
+    //dispatch(getCartProducts())
   }, [])
   useEffect(() => {
-    dispatch(getUser())
+    //dispatch(getUser())
   }, [token])
 
   return (

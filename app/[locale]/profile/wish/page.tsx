@@ -51,7 +51,7 @@ const Wish = () => {
               <p className={`${product.discount > 0 ? "line-through" : "font-semibold"}`}>{product.price} c</p>
             </div>
             <Link href={`/products/${product.id}`} className="text-xl transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
-            <p className={`${+product.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"} font-semibold flex`}>{+product.avg_crowns > 0 ? (<span className="flex gap-2 items-center"><Crown className="fill-[#FFC845] stroke-[#FFC845]" /> {product.avg_crowns}</span>) : (<span className="flex gap-2 items-center"><Crown />{tt("text3")}</span>)}</p>
+            <p className={`${+product.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"} font-semibold flex`}>{+product.avg_crowns > 0 ? (<span className="flex gap-2 items-center"><Crown className="fill-[#FFC845] stroke-[#FFC845]" /> {product.avg_crowns}</span>) : (<span className="flex gap-2 items-center"><Crown className="fill-[#D1D3D4] stroke-[#D1D3D4]" />{tt("text3")}</span>)}</p>
             <button onClick={() => dispatch(addToCart(product.id))} className="flex gap-3 items-center justify-center font-semibold text-white w-[98%] hover:bg-[#ffc745db] m-[0_auto] p-[1vh_0] mb-[1vh] mt-[1vh] border-[#FFC845] bg-[#FFC845] transition-all duration-500 cursor-pointer rounded-xl border"><ShoppingCart /> {tt("text1")}</button>
           </div>
         })

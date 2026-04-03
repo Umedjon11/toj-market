@@ -28,9 +28,10 @@ const OurShops = () => {
             <div className="h-1 w-12 bg-[#FFC845] mt-2 rounded-full" />
         </div>
 
-        <ScrollVelocityRow baseVelocity={30} className="flex items-center">
+        <ScrollVelocityRow baseVelocity={5} className="flex items-center">
             {shops && shops.map((shop: IShop) => (
-                <div
+                <button
+                    onClick={() => window.location.pathname=`/stores/${shop.id}`}
                     key={shop.id}
                     className="group flex items-center gap-4 bg-gray-50 dark:bg-white/5 border border-transparent hover:border-[#FFC845] hover:bg-white dark:hover:bg-white/10 px-6 py-3 rounded-2xl mx-4 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
                 >
@@ -56,7 +57,7 @@ const OurShops = () => {
                             </p>
                         )}
                     </div>
-                </div>
+                </button>
             ))}
             {isLoading && (
                 <div className="flex gap-8 mx-4 items-center bg-gray-50 dark:bg-white/5 px-6 py-3 rounded-2xl animate-pulse">

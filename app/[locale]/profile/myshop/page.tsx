@@ -444,7 +444,7 @@ const MyShop = () => {
                   {product.discount > 0 && (<p className="font-semibold flex gap-2">{((+product.price / 100) * (100 - product.discount)).toFixed(2)} c</p>)}
                   <p className={`${product.discount > 0 ? "line-through" : "font-semibold"}`}>{product.price} c</p>
                 </div>
-                <Link href={`/products/${product.id}`} className="text-xl transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
+                <Link href={`/products/${product.id}`} className="text-xl line-clamp-1 transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
                 <div className="flex gap-4 w-fit">
                   <Trash onClick={() => dispatch(deleteProduct(product.id))} className="transition-all duration-500 text-[#FF4444] hover:text-[#ff4444cb] cursor-pointer" />
                   <Pen onClick={() => {

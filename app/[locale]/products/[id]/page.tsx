@@ -157,29 +157,24 @@ const ProductInfo = () => {
                 </aside>
                 <aside className="flex w-full sm:w-[32%] flex-col gap-[2vh]">
                     <div className="flex flex-col gap-[3.5vh] w-full bg-white dark:bg-[#1E2024] rounded-md p-[5vh_5%]">
-                        <div className={`flex items-center ${productById && productById?.title?.length >= 10 ? "justify-between" : "gap-3"}`}>
+                        <div className={`flex items-center justify-between`}>
                             <p className="text-[rgb(110,110,115)] dark:text-[#6E6E6E] w-fit">{t("text1")}</p>
-                            <p className={`${productById && productById?.title?.length >= 10 ? "w-[30%] sm:w-[46%]" : "w-full"} text-[#6E6E73] dark:text-[#6E6E6E] overflow-hidden`}>.....................................................................................................................................................................................................................</p>
-                            <p className="font-semibold">{productById?.title}</p>
+                            <p className="font-semibold line-clamp-1 max-w-[70%]">{productById?.title}</p>
                         </div>
-                        <div className={`flex items-center gap-3`}>
+                        <div className={`flex items-center justify-between`}>
                             <p className="text-[rgb(110,110,115)] dark:text-[#6E6E6E] w-fit">{t("text6")}</p>
-                            <p className={`w-full text-[#6E6E73] dark:text-[#6E6E6E] overflow-hidden`}>.....................................................................................................................................................................................................................</p>
-                            <p className="line-clamp-1">{productById?.description}</p>
+                            <p className="line-clamp-1 max-w-[50%]">{productById?.description}</p>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center justify-between">
                             <p className="text-[#6E6E73] dark:text-[#6E6E6E] w-fit">{t("text3")}</p>
-                            <p className="w-full text-[#6E6E73] dark:text-[#6E6E6E] overflow-hidden">.....................................................................................................................................................................................................................</p>
                             <Link href={"/products"} onClick={() => dispatch(setCategryId(productById?.category_info?.id))} className="w-fit font-semibold text-[#336BFD]">{productById?.category_info?.title}</Link>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center justify-between">
                             <p className="text-[#6E6E73] dark:text-[#6E6E6E] w-fit">{t("text2")}</p>
-                            <p className="w-full text-[#6E6E73] dark:text-[#6E6E6E] overflow-hidden">.....................................................................................................................................................................................................................</p>
                             <Link href={`/stores/${productById?.shop_info?.id}`} className="w-fit font-semibold text-[#336BFD]">{productById?.shop_info?.title}</Link>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center justify-between">
                             <p className="text-[rgb(110,110,115)] dark:text-[#6E6E6E] w-fit">{t("text5")}</p>
-                            <p className="w-full text-[#6E6E73] dark:text-[#6E6E6E] overflow-hidden">.....................................................................................................................................................................................................................</p>
                             <p className="font-semibold">{productById?.views_count}</p>
                         </div>
                     </div>

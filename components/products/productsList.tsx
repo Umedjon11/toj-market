@@ -53,8 +53,8 @@ const ProductsList = () => {
               {product.discount > 0 && (<p className="font-semibold flex gap-2">{((+product.price / 100) * (100 - product.discount)).toFixed(2)} c</p>)}
               <p className={`${product.discount > 0 ? "line-through" : "font-semibold"}`}>{product.price} c</p>
             </div>
-            <Link href={`products/${product.id}`} className="text-xl transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
-            <p className={`${+product.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"} font-semibold flex`}>{+product.avg_crowns > 0 ? (<span className="flex gap-2 items-center"><Crown className="fill-[#FFC845] stroke-[#FFC845]" /> {product.avg_crowns}</span>) : (<span className="flex gap-2 items-center"><Crown />{t("text3")}</span>)}</p>
+            <Link href={`products/${product.id}`} className="text-xl line-clamp-1 transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
+            <p className={`${+product.avg_crowns > 0 ? "text-[#FFC845]" : "text-[#D1D3D4]"} font-semibold flex`}>{+product.avg_crowns > 0 ? (<span className="flex gap-2 items-center"><Crown className="fill-[#FFC845] stroke-[#FFC845]" /> {product.avg_crowns}</span>) : (<span className="flex gap-2 items-center"><Crown className="fill-[#D1D3D4] stroke-[#D1D3D4]" />{t("text3")}</span>)}</p>
             <button onClick={() => dispatch(addToCart(product.id))} className="flex gap-3 items-center justify-center font-semibold text-white w-[98%] hover:bg-[#ffc745db] m-[0_auto] p-[1vh_0] mb-[1vh] mt-[1vh] border-[#FFC845] bg-[#FFC845] transition-all duration-500 cursor-pointer rounded-xl border"><ShoppingCart /> {t("text1")}</button>
           </div>
         })

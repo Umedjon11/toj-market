@@ -11,12 +11,12 @@ export const getCartProducts = createAsyncThunk("cart/getCartProducts", async ()
     }
 })
 
-export const addToCart = createAsyncThunk("cart/addToCart", async (id: number, { dispatch }) => {
+export const addToCart = createAsyncThunk("cart/addToCart", async (id: number, { dispatch, rejectWithValue }) => {
     try {
         await axiosRequest.post("/api/toj_market/cart/add-item/", {product: id, quantity: 1})
         dispatch(getCartProducts())
-    } catch (error) {
-        console.error(error)
+    } catch (error: any) {
+        return rejectWithValue(error.response.status)
     }
 })
 

@@ -20,8 +20,8 @@ const Filters = () => {
         dispatch(getCategories())
     }, [])
     return (
-        <div className={`sm:sticky sm:z-30 sm:top-4 transition-all duration-1000 flex flex-col gap-[2vh] sm:h-[80vh] ${isOpen ? "w-full h-[80vh]" : "h-[6vh] w-[14%] sm:w-[3.6%]"} max-w-full sm:max-w-[20%]`}>
-            <button onClick={() => dispatch(setOpen())} className={`flex gap-3 transition-all p-[2vh] hover:text-[#FFC845] cursor-pointer font-semibold ${isOpen ? "text-[#FFC845]" : ""} rounded-md duration-1000 w-full bg-white dark:bg-[#1E2024] items-center`}><Funnel /> {isOpen ? t("text1") : ""}</button>
+        <div className={`sm:sticky sm:z-30 sm:top-4 transition-all duration-1000 flex flex-col gap-[2vh] sm:h-[90vh] ${isOpen ? "w-full h-[90vh]" : "h-[6vh] w-[14%] sm:w-[3.6%]"} max-w-full sm:max-w-[20%]`}>
+            <button suppressHydrationWarning={true} onClick={() => dispatch(setOpen())} className={`flex gap-3 transition-all p-[2vh] hover:text-[#FFC845] cursor-pointer font-semibold ${isOpen ? "text-[#FFC845]" : ""} rounded-md duration-1000 w-full bg-white dark:bg-[#1E2024] items-center`}><Funnel /> {isOpen ? t("text1") : ""}</button>
             <div className={`flex flex-col max-h-[50vh] overflow-y-auto gap-[1vh] bg-white transition-all duration-1000 dark:bg-[#1E2024] p-[2vh_0] rounded-md overflow-x-hidden ${isOpen ? "w-full p-[2vh_2vh]" : "w-[0%]"}`}>
                 <input className="p-[1vh_20px] rounded-md border" value={query} onChange={(e) => dispatch(setQuery(e.target.value))} type="search" placeholder={t("text7")} />
             </div>

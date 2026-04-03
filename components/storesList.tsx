@@ -20,9 +20,9 @@ const StoresList = () => {
     }, [])
 
   return (
-    <section className="flex bg-white p-[7vh_2%] rounded-2xl dark:bg-[#1E2024] w-full gap-[1vh_2%] flex-wrap">
+    <section className="flex bg-white p-[7vh_2%] rounded-2xl dark:bg-[#1E2024] w-full gap-[4vh_2%] flex-wrap">
         <aside className="flex gap-4 items-center w-full">
-          <h2 className="text-3xl  sm:text-4xl font-semibold">{tt("text8")}</h2>
+          <h2 className="text-3xl mb-[3vh] sm:text-4xl font-semibold">{tt("text8")}</h2>
         </aside>
         {shops &&
           shops.map((store: any) => {

@@ -119,7 +119,7 @@ const Store = () => {
                                     {product.discount > 0 && (<p className="font-semibold flex gap-2">{((+product.price / 100) * (100 - product.discount)).toFixed(2)} c</p>)}
                                     <p className={`${product.discount > 0 ? "line-through" : "font-semibold"}`}>{product.price} c</p>
                                 </div>
-                                <Link href={`/products/${product.id}`} className="text-xl transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
+                                <Link href={`/products/${product.id}`} className="text-xl line-clamp-1 transition-all duration-300 hover:text-[#FFC845] font-bold">{product.title}</Link>
                                 <button onClick={() => dispatch(addToCart(product.id))} className="flex gap-3 items-center justify-center font-semibold text-white w-[98%] hover:bg-[#ffc745db] m-[0_auto] p-[1vh_0] mb-[1vh] mt-[1vh] border-[#FFC845] bg-[#FFC845] transition-all duration-500 cursor-pointer rounded-xl border"><ShoppingCart /> {tt("text1")}</button>
                             </div>
                         })
