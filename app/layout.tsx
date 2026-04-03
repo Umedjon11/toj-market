@@ -21,18 +21,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Toj Market",
   description: "Online market were you can buy and sell products",
+  metadataBase: new URL('https://toj-market.core.tj/'),
   openGraph: {
     title: 'Toj Market',
     description: 'Online market were you can buy and sell products',
     url: 'https://toj-market.core.tj',
     siteName: 'Toj Market',
-    images: [
-      {
-        url: 'https://toj-market.core.tj/favicon.ico', // Абсолютный путь к картинке
-        width: 800,
-        height: 800,
-      },
-    ],
+    images: '/favicon.ico',
     type: 'website',
   },
 };
