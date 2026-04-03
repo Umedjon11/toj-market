@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/header";
 import StoreProvider from "@/store/storeProvider";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 import Footer from "@/components/footer";
 
 const geistSans = Geist({
@@ -21,14 +21,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Toj Market",
   description: "Online market were you can buy and sell products",
-  metadataBase: new URL('https://toj-market.core.tj/'),
   openGraph: {
-    title: 'Toj Market',
-    description: 'Online market were you can buy and sell products',
-    url: 'https://toj-market.core.tj',
-    siteName: 'Toj Market',
-    images: '/favicon.ico',
-    type: 'website',
+    title: "Toj Market",
+    description: "Online market were you can buy and sell products",
+    url: "https://toj-market.core.tj",
+    siteName: "Toj Market",
+    images: [
+      {
+        url: "https://toj-market.core.tj/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
   },
 };
 
@@ -52,10 +57,7 @@ export default function RootLayout({
             <StoreProvider>
               <Header />
               {children}
-              <Toaster
-                position="bottom-right"
-                reverseOrder={false}
-              />
+              <Toaster position="bottom-right" reverseOrder={false} />
               <Footer />
             </StoreProvider>
           </NextIntlClientProvider>
