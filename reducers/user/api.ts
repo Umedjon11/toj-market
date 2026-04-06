@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getUser = createAsyncThunk("userInfo/getUser", async (id: void, { rejectWithValue }) => {
     try {
-        const { data } = await axiosNav.get("/api/accounts/api/auth/get_user/")
+        const { data } = await axiosNav.get("/api/accounts/auth/get_user/")
         return data
     } catch (error: any) {
         return rejectWithValue(error.response.status)
@@ -23,7 +23,7 @@ export const getUserProfile = createAsyncThunk("userInfo/getUserProfile", async(
 
 export const editProfilePhoto = createAsyncThunk("userProfile/editProfilePhoto", async (user: FormData, { rejectWithValue, dispatch }) => {
     try {
-        await axiosRequest.patch("/api/accounts/api/auth/user_update/", user)
+        await axiosRequest.patch("/api/accounts/auth/user_update/", user)
 
         dispatch(getUserProfile())
         dispatch(getUser())
@@ -34,7 +34,7 @@ export const editProfilePhoto = createAsyncThunk("userProfile/editProfilePhoto",
 
 export const getTelegramLink = createAsyncThunk("userProfile/getTelegramLink", async (id: void, { rejectWithValue }) => {
     try {
-        const { data } = await axiosRequest.get("/api/accounts/api/auth/telegram-link/")
+        const { data } = await axiosRequest.get("/api/accounts/auth/telegram-link/")
         return data.link
     } catch (error: any) {
         return rejectWithValue(error.response.status)
@@ -43,7 +43,7 @@ export const getTelegramLink = createAsyncThunk("userProfile/getTelegramLink", a
 
 export const editProfileName = createAsyncThunk("userProfile/editProfileName", async (user: FormData, { dispatch, rejectWithValue }) => {
     try {
-        await axiosRequest.put("/api/accounts/api/auth/user_update/", user)
+        await axiosRequest.put("/api/accounts/auth/user_update/", user)
 
         dispatch(getUserProfile())
         dispatch(getUser())

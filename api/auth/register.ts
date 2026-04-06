@@ -3,7 +3,7 @@ import { axiosAuth, setToken } from "@/utils/axios"
 
 export const SendCode = async (email: string) => {
     try {
-        await axiosAuth.post('/api/accounts/api/auth/send-code/', { email: email })
+        await axiosAuth.post('/api/accounts/auth/send-code/', { email: email })
     } catch (error: any) {
         return error.response.data.email[0]
     }
@@ -11,7 +11,7 @@ export const SendCode = async (email: string) => {
 
 export const Register = async (account: any) => {
     try {
-        const { data } = await axiosAuth.post("/api/accounts/api/auth/register/", account)
+        const { data } = await axiosAuth.post("/api/accounts/auth/register/", account)
         setToken(data.access, data.refresh)
         window.location.pathname = "/"
     } catch (error: any) {

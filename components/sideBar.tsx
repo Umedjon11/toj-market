@@ -70,7 +70,7 @@ const SideBar = () => {
     }, [token])
 
     return (
-        <section className="flex flex-col gap-[2.5vh] w-full sm:w-[25%] text-[14px] sm:fixed z-30">
+        <section className="flex flex-col gap-[2.5vh] w-full sm:w-[25%] text-[14px] sm:sticky sm:top-20 z-30">
 
             <Dialog open={open} onOpenChange={() => {
                 setOpen(false)
